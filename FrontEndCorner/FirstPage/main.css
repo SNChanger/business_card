@@ -1,0 +1,22 @@
+.light-theme {
+    color: #b505a6;
+    background: #00FF00;
+}
+
+
+.dark-theme {
+    color: #ebebeb;
+    background: #000000;
+}
+
+.btn {
+    border-radius: 50%;
+    border: none;
+    background: #f38eeb;
+}
+
+.btn:active {
+    border-radius: 70%;
+    border: none;
+    background: #19c7de;
+}

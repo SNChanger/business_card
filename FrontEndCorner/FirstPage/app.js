@@ -23,7 +23,9 @@ function showMemories(obj) {
           attribution: '© OpenStreetMap'
       }).addTo(map);
 
-      var marker = L.marker([memories[i].startLat + 0.995, memories[i].startLon +0.995]).addTo(map);
+      console.log(memories[i].name);
+      var marker = L.marker([memories[i].startLat + 0.995, memories[i].startLon +0.995],
+        { title: memories[i].name }).addTo(map);
 
     }
     console.log();

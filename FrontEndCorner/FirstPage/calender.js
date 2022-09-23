@@ -4,7 +4,7 @@
 function searchCalender(calenderDate) {
     console.log("跳躍を開始します");
     $("#walk_map").toggle();
-    let requestURL = "https://walkinterface.azurewebsites.net/api/GetWalkData?";
+    let requestURL = "https://walkinterface.azurewebsites.net/api/GetWalkData?warpDate=" + calenderDate;
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';

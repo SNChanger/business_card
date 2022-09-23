@@ -36,9 +36,18 @@ function showMemories(obj, id) {
           attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    console.log(memories[i].name);
-    var marker = L.marker([memories[i].startLat + 0.995, memories[i].startLon +0.995],
+    var startMarker = L.marker([memories[i].startLat, memories[i].startLon],
       { title: memories[i].name }).addTo(map);
+    var Line = L.polyline([
+        [memories[i].startLat, memories[i].startLon],
+        [memories[i].endLat, memories[i].endLon],
+    ],{
+        "color": "#FF0000",
+        "weight": 10,
+        "opacity": 0.6
+    }).addTo(map);      
+    var endMarker = L.marker([memories[i].endLat, memories[i].endLon],
+      { title: memories[i].name + "まで歩いた" }).addTo(map);
 
   }
 }

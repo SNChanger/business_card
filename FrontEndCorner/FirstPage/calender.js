@@ -16,6 +16,17 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 function searchCalender(calenderDate) {
     console.log("跳躍を開始します");
     $("#walk_map").toggle();
-    showMemories({'memories': []}, "walk_map");
-    console.log(calenderDate.value);
+    const switcher = document.querySelector('.btn');
+    let requestURL = "https://walkinterface.azurewebsites.net/api/GetWalkData?";
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    
+    request.onload = function() {
+  
+        showMemories({'memories': request.response}, "walk_map");
+        console.log(calenderDate.value);
+    }
 }
+1

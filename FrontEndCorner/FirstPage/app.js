@@ -31,14 +31,14 @@ function showMemories(obj, id) {
       var map = L.map(id).setView([memories[i].startLat + 1, memories[i].startLon +1], 13);
     }
 
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
           attribution: '© OpenStreetMap'
-      }).addTo(map);
+    }).addTo(map);
 
-      console.log(memories[i].name);
-      var marker = L.marker([memories[i].startLat + 0.995, memories[i].startLon +0.995],
-        { title: memories[i].name }).addTo(map);
+    console.log(memories[i].name);
+    var marker = L.marker([memories[i].startLat + 0.995, memories[i].startLon +0.995],
+      { title: memories[i].name }).addTo(map);
 
   }
 }

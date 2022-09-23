@@ -15,20 +15,7 @@
 	<link type="text/css" rel="stylesheet" href="http://www.dhtmlgoodies.com/scripts/js_calendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></link>
 	<script type="text/javascript" src="https://www.dhtmlgoodies.com/scripts/js_calendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
     <link href='fullcalendar/main.css' rel='stylesheet' />
-    <script src='fullcalendar/main.js'></script>
-    <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              initialView: 'dayGridMonth'
-            });
-            calendar.render();
-          });
-    
-        </script>
-
-    </script>    
-    
+    <script src='fullcalendar/main.js'></script>    
 </head>
 <body class="light-theme">
     <h3>宇宙カレンダー(spaceCalender)</h3>
@@ -39,13 +26,12 @@
     <p>カレンダーボタンをクリックして、カレンダーを選択してください</p>
     <table>
         <tr><td colspan="3"><b>跳躍先</b></td></tr>
-        <tr><td>年月日: </td><td><td><input type="text" value="2004/02/02" name="theDate"><input type="button" value="Cal" onclick="displayCalendar(document.forms[0].theDate,'yyyy/mm/dd',this)"></td></tr>
+        <tr><td>年月日: </td><td><td><input type="text" value="2004/02/02" name="theDate"><input type="button" value="Cal" onclick="displayCalendar(document.forms[0].theDate,'yyyy/mm/dd',this)" /></td></tr>
     </table>
     </form>
     <input type="button" value="" onclick="searchCalender(document.forms[0].theDate,'yyyy/mm/dd',this)">
     <div id="debug"></div>
     
-    <div id='calendar'></div>
     <script src="app.js?time=223232"></script>
     <script src="calender.js?time=223232"></script>
 </body>

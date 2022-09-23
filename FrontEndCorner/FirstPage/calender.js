@@ -12,7 +12,7 @@ function searchCalender(calenderDate) {
     
     request.onload = function() {
         console.log(request.response);
-        showMemories({'memories': request.response}, "walk_map");
+        showMemories(request.response, "walk_map");
         console.log(calenderDate.value);
     }
 }

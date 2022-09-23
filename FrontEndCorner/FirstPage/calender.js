@@ -24,7 +24,6 @@ function searchCalender(calenderDate) {
     request.send();
     
     request.onload = function() {
-  
         showMemories({'memories': request.response}, "walk_map");
         console.log(calenderDate.value);
     }

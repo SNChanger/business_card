@@ -2,9 +2,6 @@ switcher.addEventListener('click', function () {
     document.body.classList.toggle('light-theme');
     document.body.classList.toggle('dark-theme');
   
-    var adult = document.querySelector('.adultDisplay');
-    var fan = document.querySelector('.fanDisplay');
-  
     const className = document.body.className;
     var adultDisplayKeyWord = "block";
     var fanDisplayKeyWord = "none";

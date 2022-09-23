@@ -15,5 +15,7 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 
 function searchCalender(calenderDate) {
     console.log("跳躍を開始します");
+    $("#walk_map").toggle();
+    showMemories({'memories': []}, "walk_map");
     console.log(calenderDate.value);
 }

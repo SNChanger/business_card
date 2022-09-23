@@ -14,8 +14,18 @@ function initialMap() {
   }
   
 }
+var latitude  = 0.0;
+var longitude = 0.0;
+function success(position) {
+  latitude  = position.coords.latitude;
+  longitude = position.coords.longitude;
+}
+
+function error() {
+}
 
 function showMemories(obj, id) {
+
   const memories = obj['memories'];
   var container = L.DomUtil.get(id);
   if(container != null){
@@ -28,13 +38,28 @@ function showMemories(obj, id) {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(map);
-
+    if(!navigator.geolocation) {
+    } else {
+      navigator.geolocation.getCurrentPosition(success, error);
+      L.marker([latitude, longitude],
+        { title: "出発地点" }).addTo(map);
+    
+    }
+  
   }
 
   for (let i = 0; i < memories.length; i++) {
     if (i == 0) {
       var map = new L.map(id);
       map.setView([memories[i].startLat + 1, memories[i].startLon +1], 13);
+      if(!navigator.geolocation) {
+      } else {
+        navigator.geolocation.getCurrentPosition(success, error);
+        L.marker([latitude, longitude],
+          { title: "出発地点" }).addTo(map);
+      
+      }
+    
     }
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

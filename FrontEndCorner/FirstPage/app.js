@@ -17,8 +17,13 @@ function initialMap() {
 
 function showMemories(obj, id) {
   const memories = obj['memories'];
+  var container = L.DomUtil.get(id);
+  if(container != null){
+      container._leaflet_id = null;
+  }  
   if (memories.length == 0) {
-    var map = L.map(id).setView([ 35.6809591, 139.7673068], 13);
+    var map = new L.map(id);
+    map.setView([ 35.6809591, 139.7673068], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
@@ -28,7 +33,8 @@ function showMemories(obj, id) {
 
   for (let i = 0; i < memories.length; i++) {
     if (i == 0) {
-      var map = L.map(id).setView([memories[i].startLat + 1, memories[i].startLon +1], 13);
+      var map = new L.map(id);
+      map.setView([memories[i].startLat + 1, memories[i].startLon +1], 13);
     }
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,9 +42,9 @@ function showMemories(obj, id) {
           attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    var startMarker = L.marker([memories[i].startLat, memories[i].startLon],
+    L.marker([memories[i].startLat, memories[i].startLon],
       { title: memories[i].name }).addTo(map);
-    var Line = L.polyline([
+    L.polyline([
         [memories[i].startLat, memories[i].startLon],
         [memories[i].endLat, memories[i].endLon],
     ],{
@@ -46,7 +52,7 @@ function showMemories(obj, id) {
         "weight": 10,
         "opacity": 0.6
     }).addTo(map);      
-    var endMarker = L.marker([memories[i].endLat, memories[i].endLon],
+    L.marker([memories[i].endLat, memories[i].endLon],
       { title: memories[i].name + "まで歩いた" }).addTo(map);
 
   }
